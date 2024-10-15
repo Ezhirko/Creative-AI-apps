@@ -42,10 +42,13 @@ With this tool, users can:
    ```bash
    git clone https://github.com/your-username/resume-optimizer-extension.git
 2. **Navigate to the project directory**:
+   ```bash
    cd resume-optimizer-extension
 3. **Install necessary Python packages:**
+   ```bash
    pip install -r requirements.txt
 4. **Run the Flask server:**
+   ```bash
    python app.py
 5. **Load the Chrome extension:**
    -Open Chrome and go to chrome://extensions/.
