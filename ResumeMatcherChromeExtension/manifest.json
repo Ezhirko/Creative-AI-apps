@@ -1,0 +1,51 @@
+{
+  "manifest_version": 2,
+  "name": "Resume Analyzer",
+  "version": "1.0",
+  "description": "Analyze resumes against job descriptions using Google's Gemini Pro model",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "identity",
+    "http://localhost:5000/"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "web_accessible_resources": [
+    "pdf.min.js",
+    "pdf.worker.min.js"
+  ],
+  "oauth2": {
+    "client_id": "415763057655-hkdtih5tsdm3qs28o3uj3a3v00m5saeh.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/generative-ai"
+    ]
+  }
+}
