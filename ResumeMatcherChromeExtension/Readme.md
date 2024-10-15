@@ -51,9 +51,9 @@ With this tool, users can:
    ```bash
    python app.py
 5. **Load the Chrome extension:**
-   -Open Chrome and go to chrome://extensions/.
-   -Enable Developer mode.
-   -Click Load unpacked and select the extension directory.
+   - Open Chrome and go to chrome://extensions/.
+   - Enable Developer mode.
+   - Click Load unpacked and select the extension directory.
 
 ---
 
