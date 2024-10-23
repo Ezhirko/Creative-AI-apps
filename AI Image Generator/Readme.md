@@ -1,4 +1,5 @@
 **AI Image Generator Web Application** 🌟
+
 This web application allows users to generate unique, AI-powered images by providing descriptive prompts. It leverages OpenAI's DALL·E model to produce creative visuals. Additionally, users can upload their own images to view detailed metadata, such as file name, size, and type. The app is designed with a simple, intuitive interface and provides real-time image generation and information retrieval.
 
 🚀 **Features**
