@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator and Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="page-title">AI Image Generator and Viewer</h1>
+    <div class="container">
+        <div class="left-section">
+            <div class="image-box" id="generatedImageBox">
+                <img id="generatedImage" src="" alt="Generated Image">
+            </div>
+            <div class="radio-group">
+                <label><input type="radio" name="animal" value="Cat" checked> Cat</label>
+                <label><input type="radio" name="animal" value="Dog"> Dog</label>
+                <label><input type="radio" name="animal" value="Elephant"> Elephant</label>
+            </div>
+            <div class="input-group">
+                <label for="promptInput">Enter what you want to generate:</label>
+                <input type="text" id="promptInput">
+            </div>
+            <button id="generateBtn">Generate Image</button>
+        </div>
+        <div class="right-section">
+            <div class="image-viewer" id="imageViewer">
+                <img id="selectedImage" src="" alt="Selected Image">
+            </div>
+            <div class="file-explorer">
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+            <div class="image-details">
+                <p>File Name: <span id="fileName"></span></p>
+                <p>File Size: <span id="fileSize"></span></p>
+                <p>File Type: <span id="fileType"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
