@@ -36,7 +36,7 @@ This web application allows users to generate unique, AI-powered images by provi
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page or create a new one.
 
 📺 **Demo Video**
-[Check out the video on YouTube]((https://youtu.be/AzM_unHGRs8?si=o8OGBw7l9UD83hop))
+[Check out the video on YouTube]([https://youtu.be/YOUR_VIDEO_ID](https://youtu.be/AzM_unHGRs8?si=0JZewbGdawT0MIsU))
 
 📄 **License**
 This project is licensed under the MIT License - see the LICENSE file for details.
