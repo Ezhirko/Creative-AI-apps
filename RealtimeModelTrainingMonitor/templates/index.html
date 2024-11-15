@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST CNN Model Comparison</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .form-section, .model-section, .plot-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .plot-section img {
+            max-width: 100%;
+            height: auto;
+        }
+        .samples-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .samples-column {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .samples-column h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .samples-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1 class="display-4 text-primary">MNIST CNN Model Comparison</h1>
+        <p class="lead text-secondary">Compare the performance of two CNN models with customizable kernel sizes</p>
+    </div>
+
+    <!-- Section 1: Input Form -->
+    <div class="container">
+        <div class="row">
+            <!-- Section 1: Input Form -->
+            <div class="col-md-12">
+                <div class="form-section p-4 border border-primary">
+                    <h3 class="text-primary">Enter Kernel Sizes and Training Parameters for Models</h3>
+                    <form id="modelForm" class="mt-3">
+                        <!-- Kernel Sizes -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="kernel1" class="font-weight-bold">Model 1 Kernel Sizes (comma-separated, e.g., 16,32,64)</label>
+                                    <input type="text" id="kernel1" class="form-control" placeholder="Enter kernel sizes for Model 1" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="kernel2" class="font-weight-bold">Model 2 Kernel Sizes (comma-separated, e.g., 8,8,8)</label>
+                                    <input type="text" id="kernel2" class="form-control" placeholder="Enter kernel sizes for Model 2" required>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Training Parameters -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="font-weight-bold">Optimizer</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="optimizer" id="adam" value="Adam" checked>
+                                    <label class="form-check-label" for="adam">Adam</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="optimizer" id="sgd" value="SGD">
+                                    <label class="form-check-label" for="sgd">SGD</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="batchSize" class="font-weight-bold">Batch Size</label>
+                                    <input type="number" id="batchSize" class="form-control" placeholder="Enter batch size" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="epochs" class="font-weight-bold">Number of Epochs</label>
+                                    <input type="number" id="epochs" class="form-control" placeholder="Enter number of epochs" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="learningRate" class="font-weight-bold">Learning Rate</label>
+                                    <input type="number" step="0.001" id="learningRate" class="form-control" placeholder="Enter learning rate" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Train and Compare Models</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Comparison Sections -->
+    <div class="row">
+        <!-- Section 2: Model 1 -->
+        <div class="col-md-6">
+            <div class="model-section border border-info">
+                <h3 class="text-info">Model 1 Summary</h3>
+                <p><strong>Layers:</strong> <span id="model1_layers"></span></p>
+                <p><strong>Parameters:</strong> <span id="model1_params"></span></p>
+                <hr>
+                <h4>Performance Metrics</h4>
+                <p><strong>Epoch:</strong> <span id="model1_epoch">0</span></p>
+                <p><strong>Accuracy:</strong> <span id="model1_accuracy">0%</span></p>
+                <p><strong>Loss:</strong> <span id="model1_loss">0</span></p>
+            </div>
+        </div>
+
+        <!-- Section 3: Model 2 -->
+        <div class="col-md-6">
+            <div class="model-section border border-success">
+                <h3 class="text-success">Model 2 Summary</h3>
+                <p><strong>Layers:</strong> <span id="model2_layers"></span></p>
+                <p><strong>Parameters:</strong> <span id="model2_params"></span></p>
+                <hr>
+                <h4>Performance Metrics</h4>
+                <p><strong>Epoch:</strong> <span id="model2_epoch">0</span></p>
+                <p><strong>Accuracy:</strong> <span id="model2_accuracy">0%</span></p>
+                <p><strong>Loss:</strong> <span id="model2_loss">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Accuracy and Loss Plots -->
+    <div class="plot-section mt-4 p-4 border border-warning">
+        <h3 class="text-warning text-center">Accuracy and Loss Plots</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="text-center">Accuracy Plot</h5>
+                <img id="accuracy_plot" src="/static/accuracy_plot.png" alt="Accuracy Plot" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h5 class="text-center">Loss Plot</h5>
+                <img id="loss_plot" src="/static/loss_plot.png" alt="Loss Plot" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div id="samples">
+        <h2>Test Samples</h2>
+        <div class="samples-grid-container">
+            <div class="samples-column">
+                <h3>Model 1 Samples</h3>
+                <div class="samples-container" id="samples-grid-1"></div>
+            </div>
+            <div class="samples-column">
+                <h3>Model 2 Samples</h3>
+                <div class="samples-container" id="samples-grid-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap and JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Link to the external JavaScript file -->
+<script src="/static/scripts.js"></script>
+</body>
+</html>
