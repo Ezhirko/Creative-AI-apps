@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text and Audio Processing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <style>
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown-container select {
+            width: 200px; /* Reduced width for dropdowns */
+        }
+        .btn {
+            margin-left: 10px; /* Space between dropdown and button */
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container my-5 p-4 bg-white shadow rounded">
+        <h1 class="text-center text-gradient mb-4">Text and Audio Processing</h1>
+
+        <!-- Horizontal Tabs using Bootstrap Nav Tabs (Left-Justified) -->
+        <ul class="nav nav-tabs justify-content-start mb-4" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active text-info font-weight-bold" id="text-tab" data-toggle="tab" href="#text-processing" role="tab" aria-controls="text-processing" aria-selected="true">Text Processing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info font-weight-bold" id="audio-tab" data-toggle="tab" href="#audio-processing" role="tab" aria-controls="audio-processing" aria-selected="false">Audio Processing</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Text Processing Tab Content -->
+            <div class="tab-pane fade show active" id="text-processing" role="tabpanel" aria-labelledby="text-tab">
+                <div class="row">
+                    <!-- Part 1: Controls Section -->
+                    <div class="col-md-4 p-3 border-right border-info">
+                        <h2 class="text-primary">Controls</h2>
+
+                        <!-- New Section: Enter Your Text -->
+                        <div class="form-group">
+                            <label for="user-text" class="font-weight-bold">Enter Your Text</label>
+                            <textarea id="user-text" class="form-control" rows="5" placeholder="Type your text here..."></textarea>
+                            <button class="btn btn-info mt-3 text-white" onclick="loadUserText()">Load Entered Text</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textFile" class="font-weight-bold">Upload a Text File</label>
+                            <input type="file" class="form-control-file" id="textFile" accept=".txt">
+                            <button class="btn btn-primary mt-3 text-white" onclick="loadTextFile()">Load Text</button>
+                        </div>
+
+                        <!-- Preprocessing Section -->
+                        <div class="form-group mt-4">
+                            <h3 class="text-secondary">Preprocessing</h3>
+                            <label for="preprocess-options" class="font-weight-bold">Choose an Option</label>
+                            <div class="dropdown-container">
+                                <select id="preprocess-options" class="form-control">
+                                    <option value="Default">Default</option>
+                                    <option value="Tokenization">Tokenization</option>
+                                    <option value="convert to lower case">Convert to Lowercase</option>
+                                    <option value="Remove punctuation">Remove Punctuation</option>
+                                    <option value="Remove Stopwords">Remove Stopwords</option>
+                                    <option value="Stemming">Stemming</option>
+                                    <option value="Lemmatization">Lemmatization</option>
+                                    <option value="Remove Emojis">Remove Emojis</option>
+                                </select>
+                                <button class="btn btn-success text-white" onclick="preprocessText()">Preprocess</button>
+                            </div>
+                        </div>
+
+                        <!-- Augmentation Section -->
+                        <div class="form-group mt-4">
+                            <h3 class="text-secondary">Augmentation</h3>
+                            <label for="augment-options" class="font-weight-bold">Choose an Option</label>
+                            <div class="dropdown-container">
+                                <select id="augment-options" class="form-control">
+                                    <option value="Synonyms Replacement">Synonyms Replacement</option>
+                                    <option value="Random Swapping">Random Swapping</option>
+                                    <option value="Random Insertion/Deletion">Random Insertion/Deletion</option>
+                                </select>
+                                <button class="btn btn-warning text-white" onclick="augmentText()">Augment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Part 2: Display Loaded Text -->
+                    <div class="col-md-4 p-3 border-right border-info bg-light">
+                        <h2 class="text-primary">Loaded Text</h2>
+                        <div id="text-thumbnail" class="thumbnail text-primary mt-3">Text File Loaded</div>
+                        <textarea id="text-content" class="form-control mt-3" rows="10" readonly></textarea>
+                    </div>
+
+                    <!-- Part 3: Results Section -->
+                    <div class="col-md-4 p-3 bg-light">
+                        <h2 class="text-primary">Results</h2>
+                        <div class="mt-4">
+                            <h4 class="text-success">Preprocessed Result</h4>
+                            <textarea id="preprocessed-result" class="form-control mt-2" rows="10" readonly></textarea>
+
+                            <h4 class="text-warning mt-4">Augmented Result</h4>
+                            <textarea id="augmented-result" class="form-control mt-2" rows="10" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Processing Tab Content -->
+            <div class="tab-pane fade" id="audio-processing" role="tabpanel" aria-labelledby="audio-tab">
+                <div class="row">
+                    <!-- Part 1: Controls Section -->
+                    <div class="col-md-4 p-3 border-right border-info">
+                        <h2 class="text-primary">Audio Controls</h2>
+                        <button class="btn btn-primary mt-3" onclick="startRecording()">Start Recording</button>
+                        <button class="btn btn-danger mt-3" onclick="stopRecording()">Stop Recording</button>
+                        <p id="audio-status" class="mt-3 text-muted">Press "Start Recording" to begin.</p>
+
+                        <!-- New Audio File Upload Control -->
+                        <div class="form-group mt-4">
+                            <label for="audioFile" class="font-weight-bold">Upload an Audio File</label>
+                            <input type="file" class="form-control-file" id="audioFile" accept="audio/*" onchange="loadAudioFile(event)">
+                        </div>
+                        <!-- Preprocessing Section -->
+                        <div class="form-group mt-4">
+                            <h3 class="text-secondary">Preprocessing</h3>
+                            <label for="preprocess-options" class="font-weight-bold">Choose an Option</label>
+                            <div class="dropdown-container">
+                                <select id="audio-preprocess-options" class="form-control">
+                                    <option value="Normalization">Normalization</option>
+                                    <option value="Noise Reduction">Noise Reduction</option>
+                                    <option value="Resampling">Resampling</option>
+                                </select>
+                                <button class="btn btn-success text-white" onclick="preprocessAudio()">Preprocess</button>
+                            </div>
+                            <h3 class="text-secondary">Augmentation</h3>
+                            <label for="augmentation-options" class="font-weight-bold">Choose an Option</label>
+                            <div class="dropdown-container">
+                                <select id="audio-augmentation-options" class="form-control">
+                                    <option value="Random Noise">Random Noise</option>
+                                    <option value="Time Stretching">Time Stretching</option>
+                                    <option value="Pitch Shifting">Pitch Shifting</option>
+                                    <option value="Change Speed">Change Speed</option>
+                                </select>
+                                <button class="btn btn-warning text-white" onclick="augmentAudio()">Augment</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Part 2: Audio Playback Section -->
+                    <div class="col-md-4 p-3 border-right border-info bg-light">
+                        <h2 class="text-primary">Playback</h2>
+                        <audio id="audio-playback" controls class="mt-3" style="width: 100%;">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <!-- Display Oscillogram and Spectrogram -->
+                        <div class="mt-4">
+                            <h4 class="text-secondary">Oscillogram</h4>
+                            <img id="oscillogram-image" class="img-fluid" alt="Oscillogram will appear here.">
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="text-secondary">Spectrogram</h4>
+                            <img id="spectrogram-image" class="img-fluid" alt="Spectrogram will appear here.">
+                        </div>
+                    </div>
+            
+                    <!-- Part 3: Placeholder for Future Results/Processing -->
+                    <div class="col-md-4 p-3 bg-light">
+                        <h2 class="text-primary">Audio Processing Results</h2>
+                        <div class="mt-4">
+                            <h4 class="text-success">Processed Audio</h4>
+                            <audio id="audio-player" controls>
+                                <source id="audio-source" src="" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <textarea id="processed-audio-result" class="form-control mt-2" rows="2" readonly></textarea>
+                        </div>
+                        <!-- Display Oscillogram and Spectrogram -->
+                        <div class="mt-4">
+                            <h4 class="text-secondary">Result Oscillogram</h4>
+                            <img id="result-oscillogram-image" class="img-fluid" alt="Oscillogram will appear here.">
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="text-secondary">Result Spectrogram</h4>
+                            <img id="result-spectrogram-image" class="img-fluid" alt="Spectrogram will appear here.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
