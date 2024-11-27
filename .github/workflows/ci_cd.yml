@@ -31,4 +31,4 @@ jobs:
         pip install -r TunningCNN/requirements.txt --no-deps
 
     - name: Run tests
-      run: pytest TunningCNN/test_cnn_model.py
+      run: pytest TunningCNN/test_pipeline.py
