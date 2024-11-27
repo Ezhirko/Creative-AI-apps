@@ -1,0 +1,13 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==2.3.1+cpu
+-f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.18.1+cpu
+typing_extensions
+sympy
+mpmath
+pluggy
+pytest
+numpy
+iniconfig
+Pillow
+matplotlib
