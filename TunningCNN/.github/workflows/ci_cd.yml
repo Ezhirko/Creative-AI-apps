@@ -2,9 +2,13 @@ name: Run CNN Model Tests
 
 on:
   push:
+    branches:
+      - main  # Ensure you're pushing to the branch specified here
     paths:
       - 'TunningCNN/**'
   pull_request:
+    branches:
+      - main
     paths:
       - 'TunningCNN/**'
 
