@@ -25,7 +25,7 @@ The models were iteratively fine-tuned across three versions to meet the require
   - Did not achieve the required test accuracy of 99.4% after 10 epochs
   - Overfitting observed: training accuracy > test accuracy
 - **Model Summary**:  
-  *Insert Version 1 Model Summary Image Here*
+  ![](Images/Version1.png)
 
 ---
 
@@ -37,7 +37,7 @@ The models were iteratively fine-tuned across three versions to meet the require
   - Achieved the required test accuracy of 99.4% within 3–4 epochs
   - Occasional overfitting observed: training accuracy > test accuracy
 - **Model Summary**:  
-  *Insert Version 2 Model Summary Image Here*
+  ![](Images/Version2.png)
 
 ---
 
@@ -50,7 +50,7 @@ The models were iteratively fine-tuned across three versions to meet the require
   - More generalized outcomes with minimal overfitting
   - Faster convergence
 - **Model Summary**:  
-  *Insert Version 3 Model Summary Image Here*
+  ![](Images/Version3.png)
 
 ---
 
@@ -60,6 +60,8 @@ The models were iteratively fine-tuned across three versions to meet the require
   - Balanced use of **Batch Normalization** and **Dropout**
   - Faster convergence
   - Generalized performance with minimal overfitting
+  - **Results**
+    ![](Images/TrainingLogs.png)
 
 ---
 
