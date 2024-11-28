@@ -60,7 +60,7 @@ The models were iteratively fine-tuned across three versions to meet the require
   - Balanced use of **Batch Normalization** and **Dropout**
   - Faster convergence
   - Generalized performance with minimal overfitting
-  - **Results**
+  - **Results**: </br>
     ![](Images/TrainingLogs.png)
 
 ---
