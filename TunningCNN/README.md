@@ -68,7 +68,7 @@ The models were iteratively fine-tuned across three versions to meet the require
 ## **How to Run**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/mnist-cnn-finetune.git](https://github.com/Ezhirko/Creative-AI-apps.git
+   git clone https://github.com/your_username/mnist-cnn-finetune.git
 
 2. Navigate to the project directory:
    ```bash
