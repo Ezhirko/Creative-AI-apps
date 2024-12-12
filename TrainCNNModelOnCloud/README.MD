@@ -91,7 +91,7 @@ This repository contains multiple experiments conducted on the MNIST dataset to 
 - Experiment achieved a maximum of 99.44% test accuracy with less than 8000 parameters.
 
 #### Logs
-
+![](Images/Final_Results.png)
 ---
 
 ## Repository Structure
