@@ -15,6 +15,8 @@ This repository implements a Convolutional Neural Network (CNN) architecture for
   - Global Average Pooling layer in the output block.
   - Total Receptive Field (RF): 115.
   - Total Parameters: 189,376.
+  - Model Summary
+![](images/model_parameters.png)
 
 - **Data Augmentation**:
   - Horizontal Flip
@@ -50,12 +52,6 @@ This repository implements a Convolutional Neural Network (CNN) architecture for
     |-- visualization.py
 |-- main.ipynb
 ```
-
-## Model Summary
-
-Below is a placeholder for the model summary image:
-
-![](images/model_parameters.png)
 
 ## Requirements
 
