@@ -15,7 +15,7 @@ This repository implements a Convolutional Neural Network (CNN) architecture for
   - Global Average Pooling layer in the output block.
   - Total Receptive Field (RF): 115.
   - Total Parameters: 189,376.
-  - Model Summary
+  - Model Summary <br>
 ![](images/model_parameters.png)
 
 - **Data Augmentation**:
@@ -35,6 +35,7 @@ This repository implements a Convolutional Neural Network (CNN) architecture for
 ## Directory Structure
 
 ```
+DilationDepthWiseConvolutionModel/
 |-- config/
     |-- config.json
 |-- data/
