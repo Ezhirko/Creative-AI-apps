@@ -60,7 +60,6 @@ DilationDepthWiseConvolutionModel/
 - PyTorch
 - Albumentations
 - Torchvision
-- Other dependencies in `config.json`
 
 ## Usage
 
