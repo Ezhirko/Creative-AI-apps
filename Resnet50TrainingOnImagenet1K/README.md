@@ -61,7 +61,11 @@ To train the ResNet50 model from scratch on the ImageNet 1K dataset with 1,000 c
 ---
 
 ## Screenshots
-### 1. Gradio Application UI
+### 1. EC2 Instance
+![](images/EC2Instance.png)
+### 2. Training logs
+![](images/TrainingLogs.png)
+### 3. Gradio Application UI
 ![](images/demo.png)
 
 ---
