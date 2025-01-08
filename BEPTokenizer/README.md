@@ -24,6 +24,7 @@ The dataset used for this project is the **Tamil Language Corpus for NLP** from 
 - **Vocabulary Size**: **5000 tokens**
 - **Compression Ratio**: **3.2 or above**
 - **Achieved Compression Ratio**: **11.48%**
+![](images/HuggingFace_Logs.png)
 
 ### Steps Performed
 1. **Dataset Preprocessing**: Cleaned and prepared the dataset for tokenization.
@@ -48,6 +49,8 @@ The deployed application provides:
 2. **Hugging Face Spaces Deployment**:
    - Application deployed with examples for encoding and decoding Tamil text.
    - [Hugging Face Spaces Link](https://huggingface.co/spaces/EzhirkoArulmozhi/BPETokenizer-Tamil-Language)
+
+   ![](images/AppScreenshot.png)
 
 ### How to Use the Application
 1. Enter Tamil text in the input field.
