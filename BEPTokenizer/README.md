@@ -45,7 +45,7 @@ The deployed application provides:
 
 ### Project Deliverables
 1. **GitHub Repository**: Contains the training notebook, BPE implementation, and README file with token count and compression ratio.
-   - [GitHub Repository Link](https://github.com/your-repo-link)
+   - [GitHub Repository Link]([https://github.com/your-repo-link](https://github.com/Ezhirko/Creative-AI-apps/blob/main/BEPTokenizer/Tokenizer.ipynb))
 2. **Hugging Face Spaces Deployment**:
    - Application deployed with examples for encoding and decoding Tamil text.
    - [Hugging Face Spaces Link](https://huggingface.co/spaces/EzhirkoArulmozhi/BPETokenizer-Tamil-Language)
