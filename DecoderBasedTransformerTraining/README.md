@@ -42,6 +42,7 @@ Below is a screenshot of the deployed app with sample outputs:
 ---
 
 ## Repository Structure
+```
 ├── Transformer.ipynb # Training script for the Transformer model 
 ├── README.md # This file 
 ├── input.txt # Training data
@@ -52,6 +53,7 @@ Below is a screenshot of the deployed app with sample outputs:
 └── images/ # Screenshots for demo and logs 
     ├── Logs.png  
     ├── gradioapp.png
+```
 
 ## How to Run the Demo Locally
 1. Clone the repository:
