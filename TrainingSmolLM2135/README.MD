@@ -49,5 +49,5 @@ The training log file is generated during the training process and contains deta
 - Total step time
 - Tokens processed per second
 
-You can find the [training log](https://github.com/your-username/your-repository/blob/main/path/to/file) file in the project directory after running the training script.
+You can find the [training log](https://github.com/Ezhirko/Creative-AI-apps/blob/main/TrainingSmolLM2135/training.log) file in the project directory after running the training script.
 
