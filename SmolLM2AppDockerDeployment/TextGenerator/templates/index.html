@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmolLM2 Text Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; }
+        input, button { width: 100%; margin-bottom: 10px; padding: 10px; }
+        .output { margin-top: 20px; padding: 10px; background-color: #f9f9f9; border: 1px solid #ddd; }
+        pre { white-space: pre-wrap; word-wrap: break-word; } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SmolLM2 Text Generator</h1>
+        <form method="post" action="/generate">
+            <textarea name="prompt" placeholder="Enter your text prompt here..."></textarea>
+            <input type="number" name="length" min="10" max="200" value="50" placeholder="Predict Additional Text of Length">
+            <input type="number" name="num_sequences" min="1" max="5" value="1" placeholder="Number of Sequences to Generate">
+            <button type="submit">Generate Text</button>
+        </form>
+        {% if generated_text %}
+        <div class="output">
+            <h3>Generated Text</h3>
+            <pre>{{ generated_text }}</pre>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="output">
+            <h3>Error</h3>
+            <pre>{{ error }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

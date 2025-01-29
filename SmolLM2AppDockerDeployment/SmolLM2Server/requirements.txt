@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests
+python-multipart
+torch
+transformers
+huggingface_hub
+certifi
