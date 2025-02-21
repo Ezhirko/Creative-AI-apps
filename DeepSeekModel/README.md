@@ -56,7 +56,7 @@ Example log output:
 ```
 Step 10001/10100 | Loss: 0.4346 | LR: 0.003000 | Total Step Time: 6734.82ms | Tokens/sec: 1556947.13 (accumulated over 5120 batches)
 ```
-You can find the [Training log file:](URL) here !
+You can find the [Training log file:]([URL](https://github.com/Ezhirko/Creative-AI-apps/blob/main/DeepSeekModel/Traininglogs.txt)) here !
 
 ### Contributing
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
