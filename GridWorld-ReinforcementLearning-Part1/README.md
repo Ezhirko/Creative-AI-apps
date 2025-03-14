@@ -36,10 +36,11 @@ python gridworld_value_iteration.ipynb
 
 ## Expected Output
 - The final optimal value function (example output):
+```
 [[-59.42, -57.42, -54.28, -51.71]
  [-57.42, -54.56, -49.71, -45.13]
  [-54.28, -49.71, -40.85, -29.99]
  [-51.71, -45.13, -29.99,  0.00]]
-
+```
 - Higher values indicate better states for reaching the goal.
 - The values decrease as the distance from the goal increases.
