@@ -32,6 +32,7 @@ This project implements **Value Iteration** for a **4x4 GridWorld** using the **
 Clone the repository and execute the script:
 ```bash
 python gridworld_value_iteration.ipynb
+```
 
 ## Expected Output
 - The final optimal value function (example output):
