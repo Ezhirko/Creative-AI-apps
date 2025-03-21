@@ -37,9 +37,6 @@ python map.py
 🔹 Implement more complex tracks for advanced training.</br>
 🔹 Integrate OpenCV for real-world applications.</br>
 
-🤝 Contributions
-Feel free to fork this repo and contribute! Open an issue for any suggestions or improvements.
-
 📩 Let's Connect
 💬 LinkedIn: Your Profile
 📧 Email: your.email@example.com
