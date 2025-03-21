@@ -29,7 +29,7 @@ python map.py
 ```
 
 🎥 Video Demonstration
-[**AI-Powered Self-Driving Car Simulation**]([https://youtu.be/vAIPrdSZCKU](https://youtu.be/trmjy1SSe3M?si=YfcZDIYU3M_6hSze))
+[**AI-Powered Self-Driving Car Simulation**](https://youtu.be/trmjy1SSe3M?si=YfcZDIYU3M_6hSze)
 📌 Watch Here
 
 📈 Next Steps</br>
